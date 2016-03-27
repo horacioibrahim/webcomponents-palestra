@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+    <style>
+        img {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    <img src="/img/logo_ifb.jpg">
+    -->
+    
+    <template id="myTemplate">
+        <div>
+            <img src="/img/logo_ifb.jpg">
+            <div class="legenda"></div>
+        </div>
+    </template>
+    
+    <script>
+     append = function() {
+        var t = document.querySelector('template');
+        var legenda = t.content.cloneNode(true);
+        legenda.querySelector('.legenda').innerHTML = "Manda brasa! Bacana nunca deve ser usados!";
+        document.body.appendChild(legenda);
+     }   
+    </script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example that shows off a responsive product landing page.">
+<title>Landing Page &ndash; Layout Examples &ndash; Pure</title>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->  
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+<!--<![endif]-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="css/layouts/marketing-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="css/layouts/marketing.css">
+    <!--<![endif]-->
+<style>
+    body {
+        color: white;
+    }
+    .fa {
+        font-size: 30px;
+    }
+    .home-menu {
+        background-color: rgba(0,0,0,0);
+    }
+    .more-link {
+        font-size: 14px;
+        opacity: 0.54;
+        text-decoration: none;
+        border-bottom: dotted 1px white;
+    }
+    .tag {
+        font-family: monospace;
+        letter-spacing: 1px;
+        text-transform: lowercase;
+    }
+    .splash-container{
+        height: 100%;
+    }
+    .page-chimp {
+        
+    }
+    .page-chimp.page-2 {
+        background: #E7A117;
+    }
+    .page-chimp.page-3 {
+        background: #313E86;
+    }
+    .page-chimp.page-4 {
+        /* background: #E14242; */
+        background: #000;
+    }
+    .page-chimp.page-5 {
+        background: #E14242;
+    }
+    button.btn-gray {
+        background: #f5f5f5;
+        color: rgba(0,0,0,0.86);
+    }
+    .splash {
+        height: 100%;
+        width: 100%;
+       display: -webkit-flex;
+       display: flex;
+       -webkit-flex-direction: row;
+       flex-direction: row;        
+    }
+    .splash > .splash-column {
+        width: 50%;
+        height: 100%;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+    .splash > .splash-column img {
+        flex-direction: none;
+        -webkit-flex-direction: none;
+    }
+    .splash > .splash-column.captions {
+        text-align: right;
+        padding-right: 30px;
+        padding-top: 100px;
+    }
+    .splash > .splash-column.snippet {
+        padding: 30px;
+        text-align: center;
+    }
+    .splash > .splash-column.snippet img {
+        margin: 10px auto;
+    }
+    /** PAGE 1 **/
+    .page-chimp.page-1 {
+    
+    }
+    .page-1 > .splash .splash-column.snippet img {
+        margin-top: 60px;
+    }
+    .page-1 .splash .splash-column.snippet {
+    }
+    /** PAGE 2 **/
+    .page-chimp.page-2 {
+    
+    }
+    .page-2 > .splash .splash-column.snippet img {
+        margin-top: 110px;
+        border-radius: 50%;
+    }
+    .page-2 .splash .splash-column.snippet {
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .page-2 .splash .splash-column.captions {
+
+    }
+    .page-2 .splash .splash-column.captions p {
+        line-height: 34px;
+    }
+    /* END PAGE 2 */
+    /** PAGE 3 **/
+    .page-chimp.page-3 {
+    
+    }
+    .page-3 > .splash .splash-column.snippet img {
+        margin-top: 70px;
+    }
+    .page-3 .splash .splash-column.snippet {
+        padding: 0;
+        overflow: hidden;
+    }
+    .page-3 .splash .splash-column.captions {
+
+    }
+    .page-3 .splash .splash-column.captions p {
+        line-height: 34px;
+    }
+    /* END PAGE 3 */   
+    /** PAGE 4 inline */
+    /** PAGE 5 **/
+    .page-chimp.page-5 {
+    
+    }
+    .page-5 > .splash .splash-column.snippet img {
+        margin-top: 110px;
+    }
+    .page-5 .splash .splash-column.snippet {
+        padding: 0;
+        overflow: hidden;
+    }
+    .page-5 .splash .splash-column.captions {
+
+    }
+    .page-5 .splash .splash-column.captions p {
+        line-height: 34px;
+    }
+    /* END PAGE 5 */   
+    /** PAGE 6 AND 8 **/
+    .page-chimp.page-6 {
+    
+    }
+    .page-chimp.page-8 {
+        background: #37B7B5;
+    }
+    .page-6 > .splash .splash-column.snippet img, .page-8 > .splash .splash-column.snippet img {
+        margin-top: 110px;
+    }
+    .page-6 .splash .splash-column.snippet {
+        padding: 0;
+        overflow: hidden;
+    }
+    .page-6 .splash .splash-column.captions {
+
+    }
+    .page-6 .splash .splash-column.captions h2, .page-8 .splash .splash-column.captions h2 {
+        font-size: 2em;
+        margin-bottom: 90px;
+    }
+    .page-6 .splash .splash-column.captions p, .page-8 .splash .splash-column.captions p {
+        line-height: 34px;
+    }
+    .page-6 .splash .splash-column.captions .tag, .page-8 .splash .splash-column.captions .tag {
+        text-align: center;
+    }
+    /* END PAGE 6 */  
+    /** PAGE 7 **/
+    .page-chimp.page-7 {
+        background: #3E1E68;
+    }
+    .page-7 > .splash .splash-column.snippet img {
+        margin-top: 70px;
+    }
+    
+    .splash .splash-column h1, .splash h1,
+    .splash .splash-column h2,
+    .splash .splash-column h3,
+    .splash .splash-column h4 {
+        color: white;
+    }
+    .splash .splash-column h1 {
+        font-size: 3em;
+        line-height: 1.125em;
+        color: white;
+    }
+    .splash .splash-column h3 {
+        font-size: 1.5em;
+        line-height: 1.5em;
+        color: white;
+    }
+    .splash .splash-column * {
+        
+    }
+    .splash .splash-column p {
+        text-transform: none;
+        letter-spacing: 1px;
+        line-height: 22px;
+        font-size: 20px;
+    }
+    
+</style>
+    <link rel="import" href="bower_components/slide-chimp/slide-chimp.html">
+</head>
+<body>
+
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"><button onclick="startVoice();" class="pure-button btn-gray">></button></li>
+            <li class="pure-menu-item"><button onclick="stopVoice();" class="pure-button btn-gray">||</button></li>
+            <li class="pure-menu-item"><button onclick="backward();" class="pure-button btn-gray">&lt;</button></li>
+            <li class="pure-menu-item"><button onclick="forward();" class="pure-button btn-gray">&gt;</button></li>
+        </ul>
+    </div>
+</div>
+
+<slide-chimp language="pt_BR" forward="próximo, próxima, passo, proximo, Proximo, próximo slide, vamos lá, passa um, passa, para frente, pra frente" backward="volta, volta um, anterior" auto >
+    <!-- Page 1 -->
+    <div class="page-chimp splash-container page-1">
+        <div class="splash">
+            <div class="splash-column snippet">
+                <img src="/img/logo_256x256.png" width="384">
+            </div>
+            <div class="splash-column captions">
+                <h1>Web Components<p>Uma web poderosa e disruptiva.</p></h1>
+                <p>Horacio Ibrahim - SERPRO <br>Dia Nacional da Inclusão Digital - 28/03/2016</p>
+            </div>
+        </div>
+        
+    </div>
+    <!-- Page 2 -->
+    <div class="page-chimp splash-container page-2">
+        <div class="splash">
+            <div class="splash-column snippet">
+                <img src="https://avatars2.githubusercontent.com/u/1104460?v=3&s=300">
+            </div>
+            <div class="splash-column captions">
+                <h2>Quem é o <strike>WebDev</strike> especialista?</h2>
+                <p><i class="fa fa-hand-o-left"></i> 00-09: Infraestrutura (e-mail & virtualização)<br>
+                    <i class="fa fa-hand-peace-o"></i> 09-14: Desenvolvedor Backend (Python)<br>
+                    <i class="fa fa-hand-spock-o"></i> 14-15: Machine Learning</p>
+                <p><a class="more-link" target="_blank" href="https://university.mongodb.com/">MongoDB</a><br><a class="more-link" target="_blank" href="https://www.coursera.org/learn/machine-learning/">ML Stanford</a></p>
+            </div>
+        </div>
+    </div>     
+    <!-- Page 3 -->
+    <div class="page-chimp splash-container page-3">
+        <div class="splash">
+            <div class="splash-column snippet">
+                <img src="/img/tactic.svg" width="384px">
+            </div>
+            <div class="splash-column captions">
+                <h2>Você vai trabalhar com BI, ETL's...</h2>
+            </div>
+        </div>
+    </div>     
+    <!-- Page 4 -->
+    <div class="page-chimp splash-container page-4">
+        <div class="splash">
+            <div style="width:100%; height: 100%;">
+                <h1 style="float: left; text-align: center; width: 100%; background: #000;">Atualizar o HTML...</h1>
+                <img src="/img/cry.gif" width="100%">      
+            </div>
+        </div>
+    </div>    
+    <!-- Page 5 -->
+    <div class="page-chimp splash-container page-5">
+        <div class="splash">
+            <div class="splash-column snippet">
+                <img src="/img/www.svg" width="384">
+            </div>
+            <div class="splash-column captions">
+                <h1>Tecnologias WEb</h1>
+                <h3>Quem veio para esse tema?</h3>
+                <p><a class="more-link" target="_blank" href="https://www.google.com.br/search?q=web+technologies&source=lnms&tbm=isch&sa=X">Web Technologies</a></p>
+            </div>
+        </div>
+    </div> 
+    <!-- Page 7 -->
+    <div class="page-chimp splash-container page-7">
+        <div class="splash">
+            <div class="splash-column snippet">
+                <img src="/img/logo_256x256.png" width="384">
+            </div>
+            <div class="splash-column captions">
+                <h1>Web Components</h1>
+            </div>
+        </div> 
+    </div> 
+    <!-- Page 8 -->
+    <div class="page-chimp splash-container page-8">
+        <div class="splash">
+            <div class="splash-column snippet">
+                <img src="/img/knife.svg" width="284">
+            </div>
+            <div class="splash-column captions">
+                <h2 class="tag">&lt;button is="my-button"&gt;&lt;/button&gt;</h2>
+                <!-- HTML generated using hilite.me --><div class="tag" style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">is=</span><span style="color: #e6db74">&quot;my-button&quot;</span><span style="color: #f92672">&gt;</span>My button<span style="color: #f92672">&lt;/button&gt;</span>
+                </pre></div>
+            </div>
+        </div>
+    </div>    
+    <!-- Page 6 -->    
+    <div class="page-chimp splash-container page-6">
+        <div class="splash">
+            <div class="splash-column snippet">
+                <img src="/img/hero.svg" width="384">
+            </div>
+            <div class="splash-column captions">
+                <h2 class="tag">&lt;slide-chimp&gt;&lt;/slide-chimp&gt;</h2>
+                <!-- HTML generated using hilite.me --><div  class="tag" style="text-align: left; background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;slide-chimp</span>&nbsp;<span style="color: #a6e22e">language=</span><span style="color: #e6db74">&quot;pt-BR&quot;</span> <span style="color: #a6e22e"><br>forward=</span><span style="color: #e6db74">&quot;próximo slide, próximo, passa&quot;</span> <span style="color: #a6e22e"><br>backward=</span><span style="color: #e6db74">&quot;volta, anterior&quot;</span><span style="color: #f92672">&gt;</span><span style="color: #f92672">&lt;/slide-chimp&gt;</span>
+                </pre></div>
+                <p><a class="more-link" target="_blank" href="https://horacioibrahim.github.io/slide-chimp">&lt;slide-chimp&gt;</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- Page 9 -->
+    
+</slide-chimp>
+<script>
+    var voice = document.querySelector("slide-chimp");
+    var neon = voice.querySelector('neon-animated-pages');
+    var lengthPages = document.querySelectorAll('.page-chimp').length;
+    console.log(lengthPages);
+    stopVoice = function() {
+        voice.stop();    
+    };
+    startVoice = function() {
+        voice.start();    
+    };    
+    forward = function() {
+        if (parseInt(neon.selected) < lengthPages - 1){
+            neon.selected = parseInt(neon.selected) + 1;
+        }
+    }
+    backward = function() {
+        if (parseInt(neon.selected) > 0 ){
+            neon.selected = parseInt(neon.selected) - 1;
+        }
+    }
+</script>
+
+</body>
+</html>
