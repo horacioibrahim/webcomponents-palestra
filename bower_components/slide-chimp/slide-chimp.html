@@ -1,0 +1,163 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../voice-elements/dist/voice-recognition.html">
+<link rel="import" href="../neon-animation/neon-animated-pages.html">
+
+<!--
+Web Component that allows you to pass forward/backward slides with speech recognition API.
+
+Example:
+
+    <slide-chimp auto forward="next, go, change, forward" backward="back, previous, back one slide"></slide-chimp>
+
+@demo demo/index.html
+@hero hero.svg
+-->
+
+<dom-module id="slide-chimp">
+  <template>
+    <voice-recognition id="voice"></voice-recognition>
+    
+    <div class="container">
+        <neon-animated-pages id="pages" selected="0">
+            <content selector=".page-chimp"></content>
+        </neon-animated-pages>  
+    </div>
+      
+  </template>
+
+  <script>
+    Polymer({
+      is: 'slide-chimp',
+
+      properties: {
+        /**
+         * `language` specifies the language to be reconized.
+         */
+        language: {
+            type: String,        
+            value: 'en_US',
+            observer: '_languageChanged'
+        },
+        _nextWords: Array,         
+        _backWords: Array,
+        /**
+         * `forward` specifies the list of the words *separated by comma* to pass
+         * slides forward.
+         */          
+        forward: {
+            type: String,
+            observer: "_forwardChanged"
+        },
+        /**
+         * `backward` specifies the list of the words *separated by comma* to pass
+         * slides backward.
+         */          
+        backward: { 
+            type: String,
+            observer: "_backwardChanged"
+        },
+        /**
+         * `text` stores the string of the recognized text.
+         */            
+        text: String,
+        /**
+         * `auto` specifies if the API speech should started when page loads.
+         */            
+        auto: {
+            type: Boolean,
+            value: false
+        }
+      },
+
+      // Element Lifecycle
+
+      ready: function() {
+        var self = this;
+        var voice = this.$.voice;
+        voice.accent = this.language;
+        var callback = this._chimpWork;
+        if (this.auto == true) {
+            voice.start();
+        }
+          
+        voice.addEventListener('result', function(evt){
+            callback(evt, self);
+        });          
+      },
+
+      // Element Behavior
+
+      /**
+       * Triggers the voice-elements to be played.
+       */
+      start: function() {
+        var voice = this.$.voice;
+        voice.start();
+      },
+      /**
+       * Triggers the voice-elements to be stoped.
+       */
+      stop: function() {
+        var voice = this.$.voice;
+        voice.stop();
+      },
+      // Observer
+      _forwardChanged: function(){
+          var forward = this.forward.split(",")
+          forward.forEach(function(elem, idx, arr){
+             arr[idx] = elem.trim(); 
+          });
+          this._nextWords = forward.slice();
+          console.log("forwardChanged");
+      },
+      // Observer
+      _backwardChanged: function(){
+          var backward = this.backward.split(",")
+          backward.forEach(function(elem, idx, arr){
+             arr[idx] = elem.trim(); 
+          });
+          this._backWords = backward.slice();          
+      },
+      // Pass forward or backward our slides within neon-animated-pages.
+      _chimpWork: function(evt, elem){
+            var self = elem;
+            self.text = evt.detail.result;
+            self.text = self.text.trim();
+            elem.$.voice.text = '';
+            console.log(self.text);
+          
+            var has_nextWords = self._nextWords ? self._nextWords.indexOf(self.text) : -1;
+            var has_backWords = self._backWords ? self._backWords.indexOf(self.text) : -1;
+            
+            // if next
+            if (has_nextWords > -1) {
+                self.fire('forward');
+                self.$.pages.selectNext();
+            }
+            // if back
+            if (has_backWords > -1) {
+                self.fire('backward');
+                self.$.pages.selectPrevious();
+            }
+            // if repeat in both lists.
+            if ((has_nextWords > -1) && (has_backWords > -1)) {
+                console.warn("Repeated words.");
+                return ;
+            } 
+      },
+      _languageChanged: function(){
+          this.$.voice.accent = this.language;
+      }    
+    });
+  </script>
+</dom-module>
