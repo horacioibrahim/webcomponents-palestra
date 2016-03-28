@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="A layout example that shows off a responsive product landing page.">
-<title>Landing Page &ndash; Layout Examples &ndash; Pure</title>
+<title>Web Components - Web disruptiva - Dia Nacional da Inclusão Digital</title>
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 <!--[if lte IE 8]>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
@@ -23,8 +23,15 @@
     body {
         color: white;
     }
+    p {
+        font-weight: 300;
+    }
     .fa {
         font-size: 30px;
+    }
+    .fa.big {
+        margin-top: 80px;
+        font-size: 300px;
     }
     .home-menu {
         background-color: rgba(0,0,0,0);
@@ -196,6 +203,54 @@
     .page-7 > .splash .splash-column.snippet img {
         margin-top: 70px;
     }
+    /* END PAGE 7 */
+    
+    /** PAGE 9 **/
+    .page-chimp.page-5 {
+    
+    }
+    .page-9 > .splash .splash-column.snippet img {
+        margin-top: 110px;
+    }
+    .page-9 .splash .splash-column.snippet {
+        padding: 0;
+        overflow: hidden;
+    }
+    .page-9 .splash .splash-column.captions {
+
+    }
+    .page-9 .splash .splash-column.captions p {
+        line-height: 34px;
+    }
+    /* END PAGE 9 */
+    /* PAGE 10 */
+    .page-chimp.page-10, .page-chimp.page-11, .page-chimp.page-12, .page-chimp.page-13 {
+        background: #F6C90E;
+        color: rgba(0,0,0,86);
+    }
+    .page-chimp.page-10 .splash .splash-column h1, 
+    .page-chimp.page-10 .splash h1,
+    .page-chimp.page-10 .splash .splash-column h2,
+    .page-chimp.page-10 .splash .splash-column h3,
+    .page-chimp.page-10 .splash .splash-column h4 {
+        color: rgba(0,0,0,86);
+    }
+    .page-chimp.page-11 .splash .splash-column h1, 
+    .page-chimp.page-11 .splash h1,
+    .page-chimp.page-11 .splash .splash-column h2,
+    .page-chimp.page-12 .splash .splash-column h2,
+    .page-chimp.page-13 .splash .splash-column h2,
+    .page-chimp.page-11 .splash .splash-column h3,
+    .page-chimp.page-11 .splash .splash-column h4 {
+        color: rgba(0,0,0,86);
+    }
+    .page-chimp.page-10 .splash .splash-column p,
+    .page-chimp.page-11 .splash .splash-column p,
+    .page-chimp.page-12 .splash .splash-column p,
+    .page-chimp.page-13 .splash .splash-column p,
+    .page-chimp.page-14 .splash .splash-column p {
+        line-height: 26px;
+    }
     
     .splash .splash-column h1, .splash h1,
     .splash .splash-column h2,
@@ -206,12 +261,10 @@
     .splash .splash-column h1 {
         font-size: 3em;
         line-height: 1.125em;
-        color: white;
     }
     .splash .splash-column h3 {
         font-size: 1.5em;
         line-height: 1.5em;
-        color: white;
     }
     .splash .splash-column * {
         
@@ -239,7 +292,7 @@
     </div>
 </div>
 
-<slide-chimp language="pt_BR" forward="próximo, próxima, passo, proximo, Proximo, próximo slide, vamos lá, passa um, passa, para frente, pra frente" backward="volta, volta um, anterior" auto >
+<slide-chimp language="pt_BR" forward="próximos, próximo, próxima, passo, proximo, Proximo, próximo slide, vamos lá, passa um, passa, para frente, pra frente" backward="volta, volta um, anterior, Walter" auto >
     <!-- Page 1 -->
     <div class="page-chimp splash-container page-1">
         <div class="splash">
@@ -297,7 +350,7 @@
             <div class="splash-column captions">
                 <h1>Tecnologias WEb</h1>
                 <h3>Quem veio para esse tema?</h3>
-                <p><a class="more-link" target="_blank" href="https://www.google.com.br/search?q=web+technologies&source=lnms&tbm=isch&sa=X">Web Technologies</a></p>
+                <p><a class="more-link" target="_blank" href="http://www.zephyrlimited.com/img/full/02.jpg">Web Technologies</a></p>
             </div>
         </div>
     </div> 
@@ -340,6 +393,131 @@
         </div>
     </div>
     <!-- Page 9 -->
+    <div class="page-chimp splash-container page-9">
+        <div class="splash">
+            <div class="splash-column snippet">
+                <img src="/img/umbrella.svg" width="384">
+            </div>
+            <div class="splash-column captions">
+                <h2>O que é Web Components?</h2>
+                <p>É uma coleção de especificações ou API nativas do navegador.</p>
+                <p>SPECS: <br>
+                    <i class="fa fa-code"></i> CUSTOM ELEMENTS<br>
+                    <i class="fa fa-clone"></i> HTML IMPORTS<br>
+                    <i class="fa fa-gear"></i> TEMPLATES<br>
+                    <i class="fa fa-magnet"></i> SHADOW DOM
+                </p>
+            </div>
+        </div>
+    </div>  
+    <!-- Page 10 -->
+    <div class="page-chimp splash-container page-10">
+        <div class="splash">
+            <div class="splash-column snippet">
+                <i class="fa fa-gear big"></i>
+            </div>
+            <div class="splash-column captions">
+                <h2>Templates</h2>
+                <p>É um marcação para ser utilizada posteriormente. O conteúdo é analisado pelo parser, mas ele é inerte, ou seja, os scripts não são processados, images não são carregadas e assim por diante. O template não é renderizado.</p>
+                <p>Live <a href="exemplos/exTemplate.html" target="_blank" class="more-link">exTemplate.html</a></p>
+            </div>
+        </div>
+    </div> 
+    <!-- Page 11 -->
+    <div class="page-chimp splash-container page-11">
+        <div class="splash">
+            <div class="splash-column snippet">
+                <i class="fa fa-magnet big"></i>
+            </div>
+            <div class="splash-column captions">
+                <h2>Shadow DOM</h2>
+                <p><strong>Shadow DOM</strong> prover a capacidade de encapsular a marcação, de ter fronteiras bem contidas dos estilos e expõe (para o desenvolvedor web) os mesmos mecanismos que os fabricantes de navegadores usam para implementar os componentes de interface de usuário (Eric Bidelman).</p>
+                <p>Live <br><a href="exemplos/nativosShadow.html" target="_blank" class="more-link">nativosShadow.html</a>
+                <br><a href="exemplos/shadowVanilla.html" target="_blank" class="more-link">shadowVanilla.html</a>
+                <br><a href="http://w3c.github.io/webcomponents/spec/shadow/#composition" target="_blank" class="more-link">specs Shadow DOM</a>
+                </p>
+            </div>
+        </div>
+    </div> 
+    <!-- Page 12 -->
+    <div class="page-chimp splash-container page-12">
+        <div class="splash">
+            <div class="splash-column snippet">
+                <i class="fa fa-magnet big"></i>
+            </div>
+            <div class="splash-column captions">
+                <h2>Estilos encapsulados por padrão</h2>
+                <p style="color: rgba(0,0,0,.54);"><strong>Shadow DOM</strong> prover a capacidade de encapsular a marcação, <strong style="color: rgba(0,0,0,.86);">de ter fronteiras bem contidas dos estilos</strong> e expõe (para o desenvolvedor web) os mesmos mecanismos que os fabricantes de navegadores usam para implementar os componentes de interface de usuário (Eric Bidelman).</p>
+                <p>Live <br><a href="exemplos/shadowVanilla2.html" target="_blank" class="more-link">shadowVanilla2.html</a>
+                </p>
+            </div>
+        </div>
+    </div>    
+    <!-- Page 13 -->
+    <div class="page-chimp splash-container page-13">
+        <div class="splash">
+            <div class="splash-column snippet" style="padding-top: 100px;">
+                <img src="/img/pontosInsercao.png">
+            </div>
+            <div class="splash-column captions">
+                <h2>Pontos de inserção</h2>
+                <p><strong>select</strong> usa seletores CSS para especificar o local onde os elementos do light DOM serão "encaixados".
+                </p>
+                <p><a class="more-link" href="https://github.com/horacioibrahim/slide-chimp/blob/master/demo/index.html#L23-L26" target="_blank">Demo slide-chimp</a><br>
+                <a class="more-link" href="https://github.com/horacioibrahim/slide-chimp/blob/master/slide-chimp.html#L30-L34" target="_blank">select slide-chimp</a><br>
+                <a class="more-link" href="http://html5-demos.appspot.com/shadowdom-visualizer" target="_blank">Visualizer</a>    
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Page 13 -->
+    <div class="page-chimp splash-container page-13">
+        <div class="splash">
+            <div class="splash-column snippet">
+                <i class="fa fa-code big"></i>
+            </div>
+            <div class="splash-column captions">
+                <h2>Custom Elements</h2>
+                <p>São novos elementos HTML (ou elementos do DOM) que podem ser criados ou estendidos dos já existentes.
+                </p>
+                <p><a class="more-link" href="https://www.w3.org/TR/2013/WD-components-intro-20130606/#lifecycle-callbacks" target="_blank">Callbacks</a><br>   
+                </p>
+            </div>
+        </div>
+    </div>     
+    <!-- Page 13 -->
+    <div class="page-chimp splash-container page-13">
+        <div class="splash">
+            <div class="splash-column snippet">
+                <i class="fa fa-clone big"></i>
+            </div>
+            <div class="splash-column captions">
+                <h2>HTML Imports</h2>
+                <p>"É uma forma de incluir e reusar documentos HTML em outros documentos HTML" (w3c). Ou seja, uma vez criados os componentes podemos importá-los como uma biblioteca externa.
+                </p>
+<!-- HTML generated using hilite.me --><div class="tag" style="text-align: left; background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;import&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;slide-chimp.html&quot;</span><span style="color: #f92672">&gt;</span>
+</pre></div>
+
+                <p><a class="more-link" href="https://github.com/Polymer/vulcanize" target="_blank">Vulcanize</a><br>
+                Live: Siscomando (src vs scapp)
+                </p>
+            </div>
+        </div>
+    </div>    
+    <!-- Page 14 -->
+    <div class="page-chimp splash-container page-14">
+        <div class="splash">
+            <div class="splash-column snippet" style="padding-top: 120px;">
+                <img src="/img/rocket.svg" width="280">
+            </div>
+            <div class="splash-column captions">
+                <h3 style="text-transform: none;">A melhor forma de prever o futuro é criá-lo!</h3>
+                <p><strong>Dúvidas?</strong><br>
+                <i class="fa fa-twitter"></i>@horacioibrahim
+                </p>
+            </div>
+        </div>
+    </div>     
     
 </slide-chimp>
 <script>

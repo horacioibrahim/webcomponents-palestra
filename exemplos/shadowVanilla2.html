@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+    <style>
+        h3 {
+            color: deepskyblue;
+        }
+    </style>
+</head>
+<body>
+    
+    <h3>Web components não sangra.</h3>
+
+    <div id="host">
+    </div>
+    
+    <script>
+        var host = document.querySelector('#host');
+        var shadow = host.createShadowRoot();
+        // Exemplo de não vazamento
+        shadow.innerHTML =  '<style>h3 { color: red; }</style>' +
+                            '<h3>Isso parece estranho</h3>' +
+                            '<div>mas é inteligente</div>';
+    </script>
+</body>
+</html>

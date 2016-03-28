@@ -9,22 +9,31 @@
     </style>
 </head>
 <body>
-    <!-- 
+    <!-- Este exemplo mostra uma das grandes vantagens do uso
+    de templates que é capacidade de definir a estrutura HTML
+    sem renderizar e sem carregar arquivos externos.-->
+    
+    <!-- Carrega mesmo com display -> none
     <img src="/img/logo_ifb.jpg">
     -->
     
+    <!-- Inerte
     <template id="myTemplate">
         <div>
             <img src="/img/logo_ifb.jpg">
             <div class="legenda"></div>
         </div>
     </template>
+    -->
     
     <script>
+     // rodar na console
      append = function() {
         var t = document.querySelector('template');
         var legenda = t.content.cloneNode(true);
+        // firulas...
         legenda.querySelector('.legenda').innerHTML = "Manda brasa! Bacana nunca deve ser usados!";
+        // Fazendo uso real do conteúdo do template...
         document.body.appendChild(legenda);
      }   
     </script>
